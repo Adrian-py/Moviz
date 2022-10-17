@@ -7,11 +7,11 @@ const Home: NextPage = (movies: any) => {
       <Head>
         <title>Moviz | Home</title>
       </Head>
-      <div>
+      <>
         {movies.movies.results.map((movie: any) => {
           return <h2 key={movie.id}>{movie.title}</h2>;
         })}
-      </div>
+      </>
     </>
   );
 };

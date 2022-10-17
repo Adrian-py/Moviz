@@ -25,10 +25,13 @@ module.exports = {
       h2: "2.62500rem",
       h3: "1.62500rem",
       body: "1rem",
-      seondary: "0.875rem",
+      secondary: "0.875rem",
     },
     extend: {
       spacing: {
+        x: "4.16667vw",
+        "links-y": "8vw",
+        ny: "4.6875vh",
         "2vh": "2vh",
         "4vh": "4vh",
         "2vw": "2vw",
