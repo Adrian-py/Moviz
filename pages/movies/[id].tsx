@@ -1,8 +1,11 @@
 import { GetServerSideProps } from "next";
 import { getMovieDetail } from "../../helper/getMovies";
+
 import Image from "next/image";
 import Head from "next/head";
 import Link from "next/link";
+
+import { Button } from "antd";
 
 export default function MovieDetail(movieDetail: any) {
   return (
@@ -12,23 +15,10 @@ export default function MovieDetail(movieDetail: any) {
       </Head>
 
       <Link href="/">
-        <a className="pl-[1vw] flex items-center gap-[1vw] font-bold text-h3 hover:text-shadowBlue">
-          <svg
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M18 17L13 12L18 7M11 17L6 12L11 7"
-              stroke="white"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-          </svg>
-          Back
+        <a>
+          <Button className="h-fit px-[2vw] py-2 flex items-center gap-[1vw] font-bold text-h3 text-floralWhite rounded-xl focus:text-prussianBlue hover:text-prussianBlue">
+            <p>Back</p>
+          </Button>
         </a>
       </Link>
 

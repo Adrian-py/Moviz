@@ -5,6 +5,7 @@ import Head from "next/head";
 import MovieList from "../components/MovieList";
 
 import { getDiscoverMovies } from "../helper/getMovies";
+import { Button } from "antd";
 
 export default function Discover({ movies }: { movies: any }) {
   const [currentMoviePage, setCurrentMoviePage] = useState(1);
@@ -24,12 +25,13 @@ export default function Discover({ movies }: { movies: any }) {
       </Head>
 
       <MovieList title="Discover Movies" movies={moviesList} />
-      <button
+
+      <Button
         onClick={loadMoreMovies}
-        className="w-full py-4 bg-floralWhite text-richBlack text-h3 font-bold font-montserrat rounded-lg ease-in-out duration-150 hover:bg-prussianBlue hover:text-floralWhite hover:border-2 hover:border-floralWhite"
+        className="w-full h-fit py-4 rounded-xl font-bold text-h3 text-floralWhite hover:text-prussianBlue focus:text-prussianBlue"
       >
         Load More
-      </button>
+      </Button>
     </>
   );
 }
