@@ -11,8 +11,8 @@ const Home: NextPage = ({ nowPlayingMovies, upcomingMovies }: any) => {
         <title>Moviz | Home</title>
       </Head>
       <>
-        <MovieList title="Now Playing" movies={nowPlayingMovies} />
-        <MovieList title="Upcoming" movies={upcomingMovies} />
+        <MovieList title="Now Playing" movies={nowPlayingMovies.results} />
+        <MovieList title="Upcoming" movies={upcomingMovies.results} />
       </>
     </>
   );

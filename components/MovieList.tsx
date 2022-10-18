@@ -7,15 +7,15 @@ interface MovieCarouselProps {
   movies: any;
 }
 
-export default function MovieCarousel({ title, movies }: MovieCarouselProps) {
+export default function MovieList({ title, movies }: MovieCarouselProps) {
   return (
     <>
-      <section className={`section--${title} mt-[6vh]`}>
-        <h2 className="mb-[2vh] font-bold text-h2 text-floralWhite">{title}</h2>
+      <section className={`section--${title} mb-[8vh]`}>
+        <h2 className="mb-[4vh] font-bold text-h2 text-floralWhite">{title}</h2>
 
         <div className="flex gap-5  ">
           <Row gutter={[32, { xs: 8, sm: 16, md: 24, lg: 32 }]}>
-            {movies.results.map((movie: any) => {
+            {movies.map((movie: any) => {
               return (
                 <Col
                   span={6}

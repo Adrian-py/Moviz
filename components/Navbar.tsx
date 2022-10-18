@@ -23,8 +23,8 @@ export default function Navbar() {
               </Link>
             </li>
             <li className=" ease-in-out duration-150 hover:text-shadowBlue">
-              <Link href="/movies">
-                <a>Movies</a>
+              <Link href="/discover">
+                <a>Discover</a>
               </Link>
             </li>
           </ul>
