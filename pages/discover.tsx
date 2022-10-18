@@ -1,5 +1,6 @@
 import { GetServerSideProps } from "next";
 import { useState } from "react";
+import Head from "next/head";
 
 import MovieList from "../components/MovieList";
 
@@ -18,6 +19,10 @@ export default function Discover({ movies }: { movies: any }) {
 
   return (
     <>
+      <Head>
+        <title>Moviz | Discover</title>
+      </Head>
+
       <MovieList title="Discover Movies" movies={moviesList} />
       <button
         onClick={loadMoreMovies}
