@@ -19,7 +19,12 @@ export default function Discover({ movies }: { movies: any }) {
   return (
     <>
       <MovieList title="Discover Movies" movies={moviesList} />
-      <button onClick={loadMoreMovies}>Load More</button>
+      <button
+        onClick={loadMoreMovies}
+        className="w-full py-4 bg-floralWhite text-richBlack text-h3 font-bold font-montserrat rounded-lg ease-in-out duration-150 hover:bg-prussianBlue hover:text-floralWhite hover:border-2 hover:border-floralWhite"
+      >
+        Load More
+      </button>
     </>
   );
 }
