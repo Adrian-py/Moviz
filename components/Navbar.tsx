@@ -16,24 +16,17 @@ export default function Navbar() {
         </Col>
 
         <Col span={6} offset={10} className="flex items-center">
-          <ul className="w-full flex gap-x-links-y text-h3 cursor-pointer">
-            <Row className="w-full">
-              <Col span={6} className="flex justify-center">
-                <li className=" ease-in-out duration-150 hover:text-shadowBlue">
-                  <Link href="/">
-                    <a>Home</a>
-                  </Link>
-                </li>
-              </Col>
-
-              <Col span={6} offset={12} className="flex justify-center">
-                <li className=" ease-in-out duration-150 hover:text-shadowBlue">
-                  <Link href="/movies">
-                    <a>Movies</a>
-                  </Link>
-                </li>
-              </Col>
-            </Row>
+          <ul className="w-full flex justify-end gap-[6vw] font-bold text-h3 cursor-pointer">
+            <li className=" ease-in-out duration-150 hover:text-shadowBlue">
+              <Link href="/">
+                <a>Home</a>
+              </Link>
+            </li>
+            <li className=" ease-in-out duration-150 hover:text-shadowBlue">
+              <Link href="/movies">
+                <a>Movies</a>
+              </Link>
+            </li>
           </ul>
         </Col>
       </Row>

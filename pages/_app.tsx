@@ -7,7 +7,7 @@ import Layout from "../components/Layout";
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <Layout>
-      <main className="px-16">
+      <main className="px-16 pb-[6vh]">
         <Component {...pageProps} />
       </main>
     </Layout>

@@ -1,5 +1,5 @@
 import Head from "next/head";
-import MovieCarousel from "../components/MovieCarousel";
+import MovieList from "../components/MovieList";
 
 import type { GetServerSideProps, NextPage } from "next";
 import { getMovies } from "../helper/getMovies";
@@ -11,8 +11,8 @@ const Home: NextPage = ({ nowPlayingMovies, upcomingMovies }: any) => {
         <title>Moviz | Home</title>
       </Head>
       <>
-        <MovieCarousel title="Now Playing" movies={nowPlayingMovies} />
-        <MovieCarousel title="Upcoming" movies={upcomingMovies} />
+        <MovieList title="Now Playing" movies={nowPlayingMovies} />
+        <MovieList title="Upcoming" movies={upcomingMovies} />
       </>
     </>
   );
