@@ -3,14 +3,14 @@ import { useState } from "react";
 
 import MovieList from "../components/MovieList";
 
-import { discoverMovies } from "../helper/getMovies";
+import { getDiscoverMovies } from "../helper/getMovies";
 
 export default function Discover({ movies }: { movies: any }) {
   const [currentMoviePage, setCurrentMoviePage] = useState(1);
   const [moviesList, setMoviesList] = useState([...movies.results]);
 
   const loadMoreMovies = async () => {
-    const newMoviesList = await discoverMovies(currentMoviePage + 1);
+    const newMoviesList = await getDiscoverMovies(currentMoviePage + 1);
 
     setMoviesList([...moviesList, ...newMoviesList.results]);
     setCurrentMoviePage(currentMoviePage + 1);
@@ -30,7 +30,7 @@ export default function Discover({ movies }: { movies: any }) {
 }
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
-  const res = await discoverMovies(1);
+  const res = await getDiscoverMovies(1);
   return {
     props: {
       movies: res,
