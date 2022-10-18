@@ -24,7 +24,7 @@ export default function MovieList({ title, movies }: MovieCarouselProps) {
                 >
                   <Link href={`/movies/${movie.id}`}>
                     <a className="w-full">
-                      <div className="relative w-full block aspect-[2/3]">
+                      <div className="relative w-full block aspect-[2/3] ease-in-out duration-500 hover:brightness-50">
                         <Image
                           layout="fill"
                           src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}

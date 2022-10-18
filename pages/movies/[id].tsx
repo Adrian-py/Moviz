@@ -23,17 +23,22 @@ export default function MovieDetail(movieDetail: any) {
             <path
               d="M18 17L13 12L18 7M11 17L6 12L11 7"
               stroke="white"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
             />
           </svg>
           Back
         </a>
       </Link>
 
-      <section className="relative mt-[2vh] w-full px-[4vw] py-[4vh]">
-        <div className="z-[1] flex gap-[4vw]">
+      <section
+        className="relative mt-[2vh] w-full px-[4vw] py-[4vh] bg-cover bg-no-repeat isolate rounded-xl"
+        style={{
+          background: `url('https://image.tmdb.org/t/p/w1280${movieDetail.movieDetail.backdrop_path}')`,
+        }}
+      >
+        <div className="z-10 flex gap-[4vw]">
           <div className="relative w-[24vw] aspect-[2/3]">
             <Image
               layout="fill"
@@ -50,13 +55,7 @@ export default function MovieDetail(movieDetail: any) {
           </div>
         </div>
 
-        <Image
-          layout="fill"
-          src={`https://image.tmdb.org/t/p/w1280${movieDetail.movieDetail.backdrop_path}`}
-          alt={`movieDetail.movieDetail.title--backdrop`}
-          objectFit="cover"
-          className="rounded-xl z-[-1] brightness-[0.3] select-none"
-        />
+        <div className="absolute top-0 left-0 w-full h-full bg-richBlack opacity-[35%] z-[-1]"></div>
       </section>
     </>
   );
@@ -64,7 +63,7 @@ export default function MovieDetail(movieDetail: any) {
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const res = await getMovieDetail(context?.params?.id);
-  console.log(res);
+
   return {
     props: {
       movieDetail: res,
