@@ -27,17 +27,7 @@ module.exports = {
       body: "1rem",
       secondary: "0.875rem",
     },
-    extend: {
-      spacing: {
-        x: "4.16667vw",
-        "links-y": "8vw",
-        ny: "4.6875vh",
-        "2vh": "2vh",
-        "4vh": "4vh",
-        "2vw": "2vw",
-        "4vw": "4vw",
-      },
-    },
+    extend: {},
   },
   plugins: [],
 };

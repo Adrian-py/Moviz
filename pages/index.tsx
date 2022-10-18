@@ -1,5 +1,6 @@
-import type { GetServerSideProps, NextPage } from "next";
 import Head from "next/head";
+
+import type { GetServerSideProps, NextPage } from "next";
 
 const Home: NextPage = (movies: any) => {
   return (
