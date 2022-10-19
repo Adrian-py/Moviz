@@ -1,9 +1,15 @@
 const getMovies = async (category: string) => {
-  const res = await fetch(
-    `https://api.themoviedb.org/3/movie/${category}?api_key=f93991664483bce387a4f9f9b8cb19cb&language=en-US&page=1`
-  );
+  let list: any = {};
 
-  return await res.json();
+  await fetch(
+    `https://api.themoviedb.org/3/movie/${category}?api_key=f93991664483bce387a4f9f9b8cb19cb&language=en-US&page=1`
+  )
+    .then(async (res) => {
+      list = await res.json();
+    })
+    .catch((err) => err);
+
+  return await list;
 };
 
 const getDiscoverMovies = async (page: number) => {
@@ -20,10 +26,16 @@ const getDiscoverMovies = async (page: number) => {
 };
 
 const getMovieDetail = async (movieID: any) => {
-  const res = await fetch(`
-    https://api.themoviedb.org/3/movie/${movieID}?api_key=f93991664483bce387a4f9f9b8cb19cb&language=en-US`);
+  let list: any = {};
 
-  return await res.json();
+  await fetch(`
+    https://api.themoviedb.org/3/movie/${movieID}?api_key=f93991664483bce387a4f9f9b8cb19cb&language=en-US`)
+    .then(async (res) => {
+      list = await res.json();
+    })
+    .catch((err) => err);
+
+  return await list;
 };
 
 export { getMovies, getDiscoverMovies, getMovieDetail };
