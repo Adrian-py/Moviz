@@ -4,11 +4,11 @@ module.exports = {
   content: ["./pages/**/*.tsx", "./components/**/*.tsx"],
   theme: {
     screens: {
-      ph: "25.875em",
-      tb: "48em",
-      "d-sm": "80em",
-      "d-md": "90em",
-      "d-l": "120em",
+      ph: { max: "25.875em" },
+      tb: { max: "48em" },
+      "d-sm": { max: "80em" },
+      "d-md": { max: "90em" },
+      "d-l": { max: "120em" },
     },
     colors: {
       transparent: "transparent",

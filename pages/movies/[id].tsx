@@ -8,70 +8,72 @@ import Link from "next/link";
 import { Button } from "antd";
 
 export default function MovieDetail(movieDetail: any) {
-  console.log(movieDetail.movieDetail);
   return (
     <>
       <Head>
         <title>Moviz | {movieDetail.movieDetail.title}</title>
       </Head>
 
-      <Link href="/">
-        <a>
-          <Button className="h-fit px-[2vw] py-2 flex items-center gap-[1vw] font-bold text-h3 text-floralWhite rounded-xl focus:text-prussianBlue hover:text-prussianBlue">
-            <p>Back</p>
-          </Button>
-        </a>
-      </Link>
+      <div className="w-fit">
+        <Link href="/">
+          <a>
+            <Button className="w-fit h-fit px-[2vw] py-2 flex items-center gap-[1vw] font-bold text-h3 text-floralWhite rounded-xl focus:text-prussianBlue hover:text-prussianBlue d-sm:text-body ph:px-[4vw]">
+              <p>Back</p>
+            </Button>
+          </a>
+        </Link>
+      </div>
 
       <section
-        className="relative mt-[2vh] w-full px-[4vw] py-[4vh] bg-cover bg-no-repeat isolate rounded-xl"
+        className="relative my-[4vh] w-full px-[4vw] py-[4vh] bg-cover bg-no-repeat isolate rounded-xl overflow-hidden tb:p-0"
         style={{
           background: `url('https://image.tmdb.org/t/p/w1280${movieDetail.movieDetail.backdrop_path}')`,
         }}
       >
-        <div className="z-10 flex gap-[4vw]">
-          <div className="relative w-[24vw] h-fit aspect-[2/3]">
+        <div className="z-10 flex gap-[4vw] tb:flex-col tb:items-start tb:gap-0">
+          <div className="relative w-[24vw] h-fit aspect-[2/3] tb:w-full tb:h-[40vh] tb:aspect-auto">
             <Image
               layout="fill"
               src={`https://image.tmdb.org/t/p/w500${movieDetail.movieDetail.poster_path}`}
               alt={movieDetail.movieDetail.title}
-              className=" rounded-xl"
+              className=" rounded-xl tb:rounded-none"
+              objectFit="cover"
             />
           </div>
 
-          <div className="pt-[2vh] max-w-[55vw] flex flex-col">
-            <div className="flex gap-12 items-center">
-              <h2 className="mb-[2vh] max-w-[35vw] font-bold text-floralWhite text-h1 whitespace-nowrap text-ellipsis overflow-hidden">
+          <div className="pt-[2vh] max-w-[55vw] flex flex-col d-md:pt-[0] tb:px-[4vw] tb:py-[4vh] tb:bg-prussianBlue tb:w-full tb:max-w-[100%]">
+            <div className="mt-[4vh] flex gap-8 items-center">
+              <h2 className="mb-[1vh] max-w-[35vw] font-bold text-floralWhite text-h1 whitespace-nowrap text-ellipsis overflow-hidden d-sm:text-h2 tb:max-w-[52.5vw]">
                 {movieDetail.movieDetail.title}
               </h2>
-              <p className="text-h3 opacity-75">
+              <p className="text-body opacity-75">
                 {movieDetail.movieDetail.runtime}m
               </p>
-              {movieDetail.movieDetail.adult ? (
-                <Image
-                  layout="fixed"
-                  width="64"
-                  height="64"
-                  src="/assets/adult.png"
-                  alt={movieDetail.movieDetail.title}
-                  className="cursor-pointer"
-                />
+              {!movieDetail.movieDetail.adult ? (
+                <div className="relative w-12 aspect-square">
+                  <Image
+                    layout="fill"
+                    src="/assets/adult.png"
+                    alt={movieDetail.movieDetail.title}
+                    className="cursor-pointer"
+                  />
+                </div>
               ) : null}
             </div>
 
-            <p className="mb-[4vh] text-h3">
+            <p className="mb-[2vh] max-h-[200px] text-h3 overflow-hidden leading-[50px] d-sm:text-body d-sm:max-h-[90px] d-sm:leading-[30px] d-sm:mb-[1vh] tb:text-h3">
               {movieDetail.movieDetail.overview}
             </p>
 
-            <div className="mb-[4vh] flex flex-col">
+            <div className="mb-[4vh] flex flex-col d-sm:mb-[2vh]">
               <h3 className="mb-[1vh] font-bold text-h3 text-floralWhite">
                 Genres
               </h3>
-              <div className="flex flex-wrap gap-[1vw]">
+              <div className="flex flex-wrap gap-[1vw] tb:gap-[4vw]">
                 {movieDetail.movieDetail.genres.map((genre: any) => {
                   return (
                     <p
-                      className="w-fit px-4 py-2 font-bold text-body rounded-xl transition-all ease-in-out duration-300 bg-floralWhite text-prussianBlue border-2 border-floralWhite cursor-pointer hover:bg-prussianBlue hover:border-prussianBlue hover:text-floralWhite hover:scale-110"
+                      className="w-fit px-4 py-2 font-bold text-body rounded-xl transition-all ease-in-out duration-300 bg-floralWhite text-prussianBlue border-2 border-floralWhite cursor-pointer hover:bg-prussianBlue hover:border-prussianBlue hover:text-floralWhite hover:scale-110 d-sm:text-secondary"
                       key={genre.id}
                     >
                       {genre.name}
@@ -82,7 +84,7 @@ export default function MovieDetail(movieDetail: any) {
             </div>
 
             <a
-              className="w-fit px-[2vw] py-[1vh] font-bold text-floralWhite text-body bg-red rounded-xl cursor-pointer transition-all ease-in-out duration-300 hover:bg-floralWhite hover:text-red hover:scale-105"
+              className="w-fit px-[2vw] py-[1vh] font-bold text-floralWhite text-body bg-red rounded-xl cursor-pointer transition-all ease-in-out duration-300 hover:bg-floralWhite hover:text-red hover:scale-105 ph:mt-[2vh]"
               href={movieDetail.movieDetail.homepage}
             >
               Movie Homepage

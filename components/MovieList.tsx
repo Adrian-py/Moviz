@@ -10,15 +10,20 @@ interface MovieCarouselProps {
 export default function MovieList({ title, movies }: MovieCarouselProps) {
   return (
     <>
-      <section className={`section--${title} mb-[8vh]`}>
-        <h2 className="mb-[4vh] font-bold text-h2 text-floralWhite">{title}</h2>
+      <section className="mb-[8vh]">
+        <h2 className="mb-[4vh] font-bold text-h2 text-floralWhite ph:text-h3">
+          {title}
+        </h2>
 
-        <div className="flex gap-5  ">
-          <Row gutter={[32, { xs: 8, sm: 16, md: 24, lg: 32 }]}>
+        <div className="flex gap-5">
+          <Row gutter={[32, { xs: 32, sm: 16, md: 24, lg: 48 }]}>
             {movies.map((movie: any) => {
               return (
                 <Col
-                  span={6}
+                  xl={6}
+                  lg={12}
+                  md={12}
+                  xs={24}
                   key={movie.id}
                   className="flex flex-col items-center gap-2"
                 >
@@ -32,7 +37,7 @@ export default function MovieList({ title, movies }: MovieCarouselProps) {
                           className="rounded-2xl"
                         />
                       </div>
-                      <h3 className="font-bold text-h3 text-center text-floralWhite">
+                      <h3 className="font-bold text-h3 text-center text-floralWhite ph:mt-[4px]">
                         {movie.title}
                       </h3>
                     </a>
