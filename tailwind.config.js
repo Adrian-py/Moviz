@@ -16,6 +16,7 @@ module.exports = {
       prussianBlue: "#1D2D44",
       shadowBlue: "#748CAB",
       floralWhite: "#F9F7F0",
+      red: "#E50914",
     },
     fontFamily: {
       montserrat: ["Montserrat", "sans-serif"],
