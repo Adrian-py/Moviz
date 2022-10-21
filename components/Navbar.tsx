@@ -5,7 +5,7 @@ export default function Navbar() {
   return (
     <nav className="px-16 py-12 flex justify-between items-center border-b-4 border-opacity-10 border-floralWhite ph:flex-col ph:pb-8">
       <Row className="w-full ">
-        <Col span={8} xs={24}>
+        <Col sm={8} xs={24}>
           <Link href="/">
             <a>
               <h1 className="font-bold font-montserrat text-h1 text-floralWhite cursor-pointer select-none ph:text-center">
@@ -16,8 +16,7 @@ export default function Navbar() {
         </Col>
 
         <Col
-          span={6}
-          offset={10}
+          sm={{ span: 6, offset: 10 }}
           xs={{ span: 24, offset: 0 }}
           className="flex items-center ph:mt-[4vh]"
         >

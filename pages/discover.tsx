@@ -1,17 +1,27 @@
 import { GetServerSideProps } from "next";
 import { useState, useEffect } from "react";
 import { Button } from "antd";
-import Head from "next/head";
 
+// Components
+import Head from "next/head";
 import MovieList from "../components/MovieList";
 
+// Helper Functions
 import { getDiscoverMovies } from "../helper/getMovies";
 import {
   handleGetFromLocalStorage,
   handlePushingToLocalStorage,
 } from "../helper/handlePushToLocalStorage";
 
-const useDiscover = (movies: any) => {
+// Types
+import type { MovieListTypes } from "../types/MovieTypes";
+
+interface DiscoverPropsTypes {
+  movies: MovieListTypes;
+}
+
+// Custom Hook for Discover
+const useDiscover = (movies: MovieListTypes) => {
   const [currentMoviePage, setCurrentMoviePage] = useState(1);
   const [moviesList, setMoviesList] = useState(movies.results);
 
@@ -20,7 +30,10 @@ const useDiscover = (movies: any) => {
     if (movies.results === undefined) return;
 
     await getDiscoverMovies(currentMoviePage + 1).then((newMovies) => {
-      const newMoviesList = [...moviesList, ...newMovies.results];
+      const newMoviesList = [
+        ...(moviesList ?? []),
+        ...(newMovies.results ?? []),
+      ];
 
       setMoviesList(newMoviesList);
       handlePushingToLocalStorage("discoverMoviesList", newMoviesList);
@@ -42,7 +55,7 @@ const useDiscover = (movies: any) => {
   return { moviesList, loadMoreMovies };
 };
 
-export default function Discover({ movies }: { movies: any }) {
+export default function Discover({ movies }: DiscoverPropsTypes) {
   const { moviesList, loadMoreMovies } = useDiscover(movies);
 
   return (

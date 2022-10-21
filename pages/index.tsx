@@ -1,16 +1,30 @@
 import type { GetServerSideProps, NextPage } from "next";
 import { useEffect, useState } from "react";
 
+// Components
 import Head from "next/head";
 import MovieList from "../components/MovieList";
 
+// Helpers
 import { getMovies } from "../helper/getMovies";
 import {
   handleGetFromLocalStorage,
   handlePushingToLocalStorage,
 } from "../helper/handlePushToLocalStorage";
 
-const useHomepage = (nowPlayingMovies: any, upcomingMovies: any) => {
+// Types
+import type { MovieListTypes } from "../types/MovieTypes";
+
+interface HomepagePropsTypes {
+  nowPlayingMovies: MovieListTypes;
+  upcomingMovies: MovieListTypes;
+}
+
+// Custom Hook for Homepage
+const useHomepage = (
+  nowPlayingMovies: MovieListTypes,
+  upcomingMovies: MovieListTypes
+) => {
   const [nowPlayingList, setNowPlayingList] = useState(
     nowPlayingMovies.results
   );
@@ -33,7 +47,7 @@ const useHomepage = (nowPlayingMovies: any, upcomingMovies: any) => {
   return { nowPlayingList, upcomingList };
 };
 
-const Home: NextPage = ({ nowPlayingMovies, upcomingMovies }: any) => {
+const Home = ({ nowPlayingMovies, upcomingMovies }: HomepagePropsTypes) => {
   const { nowPlayingList, upcomingList } = useHomepage(
     nowPlayingMovies,
     upcomingMovies
@@ -45,11 +59,8 @@ const Home: NextPage = ({ nowPlayingMovies, upcomingMovies }: any) => {
         <title>Moviz | Home</title>
       </Head>
       <>
-        <MovieList
-          title="Now Playing"
-          movies={nowPlayingList ? nowPlayingList : []}
-        />
-        <MovieList title="Upcoming" movies={upcomingList ? upcomingList : []} />
+        <MovieList title="Now Playing" movies={nowPlayingList ?? []} />
+        <MovieList title="Upcoming" movies={upcomingList ?? []} />
       </>
     </>
   );
