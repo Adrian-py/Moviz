@@ -20,7 +20,7 @@ export default function MovieList({ title, movies }: MovieCarouselProps) {
 
         <div className="flex gap-5">
           <Row gutter={[32, { xs: 32, sm: 16, md: 24, lg: 48 }]}>
-            {movies.map((movie: MovieListResult) => {
+            {(movies ?? []).map((movie: MovieListResult) => {
               return (
                 <Col
                   xl={6}
