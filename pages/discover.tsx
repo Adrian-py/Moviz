@@ -23,7 +23,7 @@ interface DiscoverPropsTypes {
 // Custom Hook for Discover
 const useDiscover = (movies: MovieListTypes) => {
   const [currentMoviePage, setCurrentMoviePage] = useState(1);
-  const [moviesList, setMoviesList] = useState(movies.results);
+  const [moviesList, setMoviesList] = useState(movies.results ?? []);
 
   // Handles loading more movies to the list
   const loadMoreMovies = async () => {
@@ -64,10 +64,7 @@ export default function Discover({ movies }: DiscoverPropsTypes) {
         <title>Moviz | Discover</title>
       </Head>
 
-      <MovieList
-        title="Discover Movies"
-        movies={moviesList ? moviesList : []}
-      />
+      <MovieList title="Discover Movies" movies={moviesList ?? []} />
 
       <Button
         onClick={loadMoreMovies}

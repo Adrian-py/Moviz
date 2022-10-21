@@ -26,9 +26,11 @@ const useHomepage = (
   upcomingMovies: MovieListTypes
 ) => {
   const [nowPlayingList, setNowPlayingList] = useState(
-    nowPlayingMovies.results
+    nowPlayingMovies.results ?? []
   );
-  const [upcomingList, setUpcomingList] = useState(upcomingMovies.results);
+  const [upcomingList, setUpcomingList] = useState(
+    upcomingMovies.results ?? []
+  );
 
   // To check if there is previously generated list to use, if API calls fail
   useEffect(() => {
