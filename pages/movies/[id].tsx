@@ -15,7 +15,6 @@ interface MovieDetailPropsTypes {
 }
 
 export default function MovieDetail({ movieDetail }: MovieDetailPropsTypes) {
-  console.log(movieDetail);
   return (
     <>
       <Head>
