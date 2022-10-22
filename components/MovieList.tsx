@@ -31,7 +31,7 @@ export default function MovieList({ title, movies }: MovieCarouselProps) {
                   className="flex flex-col items-center gap-2"
                 >
                   <Link href={`/movies/${movie.id}`}>
-                    <a className="w-full">
+                    <a className="w-full flex flex-col items-center">
                       <div className="relative w-full block aspect-[2/3] ease-in-out duration-500 hover:brightness-50">
                         <Image
                           layout="fill"
@@ -40,7 +40,7 @@ export default function MovieList({ title, movies }: MovieCarouselProps) {
                           className="rounded-2xl"
                         />
                       </div>
-                      <h3 className="font-bold text-h3 text-center text-floralWhite ph:mt-[4px]">
+                      <h3 className="max-w-[50%] font-bold text-h3 text-center text-floralWhite whitespace-nowrap overflow-hidden text-ellipsis ph:mt-[4px]">
                         {movie.title}
                       </h3>
                     </a>

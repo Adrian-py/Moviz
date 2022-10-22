@@ -6,11 +6,11 @@ import Head from "next/head";
 import MovieList from "../components/MovieList";
 
 // Helpers
-import { getMovies } from "../helper/getMovies";
 import {
   handleGetFromLocalStorage,
   handlePushingToLocalStorage,
 } from "../helper/handlePushToLocalStorage";
+import { getMovies } from "../helper/getMovies";
 
 // Types
 import type { MovieListTypes } from "../types/MovieTypes";
@@ -26,9 +26,11 @@ const useHomepage = (
   upcomingMovies: MovieListTypes
 ) => {
   const [nowPlayingList, setNowPlayingList] = useState(
-    nowPlayingMovies.results
+    nowPlayingMovies.results ?? []
   );
-  const [upcomingList, setUpcomingList] = useState(upcomingMovies.results);
+  const [upcomingList, setUpcomingList] = useState(
+    upcomingMovies.results ?? []
+  );
 
   // To check if there is previously generated list to use, if API calls fail
   useEffect(() => {
