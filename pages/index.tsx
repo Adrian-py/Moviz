@@ -6,11 +6,11 @@ import Head from "next/head";
 import MovieList from "../components/MovieList";
 
 // Helpers
-import { getMovies } from "../helper/getMovies";
 import {
   handleGetFromLocalStorage,
   handlePushingToLocalStorage,
 } from "../helper/handlePushToLocalStorage";
+import { getMovies } from "../helper/getMovies";
 
 // Types
 import type { MovieListTypes } from "../types/MovieTypes";
